@@ -1,0 +1,8 @@
+$ zig translate-c snippets/triple.h > triple.zig
+exit: 0 (output is several hundred lines, mostly predefined macro constants)
+
+$ grep -n "triple" triple.zig
+4:pub extern fn triple(x: c_int) c_int;
+
+$ wc -l triple.zig
+lines: 415

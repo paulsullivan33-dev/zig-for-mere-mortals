@@ -1,0 +1,6 @@
+$ zig run snippets/errors_demo.zig
+found 'beans' at position 2
+'teapot' is not on the shelf
+first pour: 200 ml
+second pour failed: NotEnoughWater
+exit: 0

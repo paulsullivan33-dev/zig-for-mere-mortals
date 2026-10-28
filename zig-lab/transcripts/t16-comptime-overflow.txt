@@ -1,0 +1,14 @@
+$ zig build-exe snippets/fact21.zig
+snippets/fact21.zig:2:99: error: overflow of integer type 'u64' with value '51090942171709440000'
+fn factorial(comptime n: u64) u64 { var r: u64 = 1; var i: u64 = 2; while (i <= n) : (i += 1) { r *= i; } return r; }
+                                                                                                ~~^~~~
+snippets/fact21.zig:3:29: note: called at comptime here
+const twenty_one = factorial(21);
+                   ~~~~~~~~~^~~~
+referenced by:
+    main: snippets/fact21.zig:4:49
+    callMain [inlined]: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:729:20
+    posixCallMainAndExit: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:681:38
+    2 reference(s) hidden; use '-freference-trace=6' to see all references
+exit: 1

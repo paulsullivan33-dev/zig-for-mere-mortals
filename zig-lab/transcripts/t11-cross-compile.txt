@@ -1,0 +1,16 @@
+$ zig build -Dtarget=aarch64-linux-gnu
+exit: 0
+
+$ file zig-out/bin/kettle
+zig-out/bin/kettle: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, with debug_info, not stripped
+
+$ zig build -Dtarget=x86_64-windows-gnu
+exit: 0
+
+$ ls zig-out/bin
+kettle
+kettle.exe
+kettle.pdb
+
+$ file zig-out/bin/kettle.exe
+zig-out/bin/kettle.exe: PE32+ executable (console) x86-64, for MS Windows, 7 sections

@@ -1,0 +1,5 @@
+$ zig run snippets/cimport.zig
+snippets/cimport.zig:5:11: error: invalid builtin function: '@cImport'
+const c = @cImport(@cInclude("stdio.h"));
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+exit: 1

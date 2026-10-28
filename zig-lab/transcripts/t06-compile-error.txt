@@ -1,0 +1,27 @@
+$ zig build-exe snippets/type_error.zig
+snippets/type_error.zig:5:22: error: expected type 'u8', found '*const [3:0]u8'
+    const cups: u8 = "two";
+                     ^~~~~
+referenced by:
+    callMain [inlined]: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:729:20
+    posixCallMainAndExit: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:681:38
+    2 reference(s) hidden; use '-freference-trace=5' to see all references
+exit: 1
+
+$ zig build-exe snippets/unused.zig
+snippets/unused.zig:4:11: error: unused local constant
+    const cups: u8 = 2;
+          ^~~~
+exit: 1
+
+$ zig build-exe snippets/too_big.zig
+snippets/too_big.zig:2:22: error: type 'u8' cannot represent integer value '300'
+    const cups: u8 = 300;
+                     ^~~
+referenced by:
+    callMain [inlined]: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:788:64
+    callMainWithArgs [inlined]: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:729:20
+    posixCallMainAndExit: /home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:681:38
+    2 reference(s) hidden; use '-freference-trace=5' to see all references
+exit: 1

@@ -1,0 +1,21 @@
+$ cat snippets/badly_formatted.zig
+const std = @import("std");
+pub fn main() void {
+      const x    =    1+2;
+        std.debug.print( "{d}\n" , .{x} );
+}
+
+$ zig fmt --check snippets/badly_formatted.zig
+snippets/badly_formatted.zig
+exit: 1
+
+$ zig fmt snippets/badly_formatted.zig
+snippets/badly_formatted.zig
+exit: 0
+
+$ cat snippets/badly_formatted.zig
+const std = @import("std");
+pub fn main() void {
+    const x = 1 + 2;
+    std.debug.print("{d}\n", .{x});
+}

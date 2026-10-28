@@ -1,0 +1,11 @@
+$ zig build
+exit: 0
+
+$ ls zig-out/bin
+kettle
+
+$ ./zig-out/bin/kettle
+All your codebase are belong to us.
+info: arg: ./zig-out/bin/kettle
+Run `zig build test` to run the tests.
+exit: 0

@@ -1,0 +1,31 @@
+First attempt, with the build-system spelling of the flag:
+
+$ zig build-exe snippets/overflow.zig -Doptimize=ReleaseFast -femit-bin=overflow_wrongflag
+exit: 0
+
+$ ./overflow_wrongflag
+thread 71689 panic: integer overflow
+/home/hatch/workspace/build-check/zig-scratch/lab/snippets/overflow.zig:10:7: 0x11e3bc5 in main (overflow.zig)
+    a += b;
+      ^
+/home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:788:64: 0x11e34cb in callMain (std.zig)
+    if (fn_info.param_types.len == 0) return wrapMain(root.main());
+                                                               ^
+/home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:248:5: 0x11e2f01 in _start (std.zig)
+    asm volatile (switch (native_arch) {
+    ^
+exit: 134
+
+The binary is unchanged in size from the debug build, and it still panics.
+The -Doptimize spelling belongs to `zig build`. Direct compiles take -O:
+
+$ zig build-exe snippets/overflow.zig -O ReleaseFast -femit-bin=overflow_fast2
+exit: 0
+
+$ ls -la overflow_wrongflag overflow_fast2
+-rwxrwx--- 1 root root  4037832 Oct 28 17:40 overflow_fast2
+-rwxrwx--- 1 root root 10462008 Oct 28 17:40 overflow_wrongflag
+
+$ ./overflow_fast2
+total: 44
+exit: 0

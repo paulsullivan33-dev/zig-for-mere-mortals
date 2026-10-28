@@ -1,0 +1,12 @@
+$ zig run snippets/overflow.zig
+thread 71041 panic: integer overflow
+/home/hatch/workspace/build-check/zig-scratch/lab/snippets/overflow.zig:10:7: 0x11e3bc5 in main (overflow.zig)
+    a += b;
+      ^
+/home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:788:64: 0x11e34cb in callMain (std.zig)
+    if (fn_info.param_types.len == 0) return wrapMain(root.main());
+                                                               ^
+/home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/start.zig:248:5: 0x11e2f01 in _start (std.zig)
+    asm volatile (switch (native_arch) {
+    ^
+exit: 134

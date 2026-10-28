@@ -1,0 +1,12 @@
+$ zig build test
+exit: 0
+
+$ zig build test --summary all
+Build Summary: 5/5 steps succeeded
+test success
++- run test cached
+|  +- compile test debug native cached 39ms MaxRSS:40M
++- run test cached
+   +- compile test debug native cached 39ms MaxRSS:40M
+
+exit: 0

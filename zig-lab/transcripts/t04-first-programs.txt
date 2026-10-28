@@ -1,0 +1,7 @@
+$ zig run snippets/hello.zig
+hello, world
+exit: 0
+
+$ zig build run   (in the kettle project)
+a 750 ml kettle fills 3 cups of 250 ml
+exit: 0

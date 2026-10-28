@@ -1,0 +1,17 @@
+$ zig test snippets/failing_test.zig
+1/2 failing_test.test.adding two numbers...OK
+2/2 failing_test.test.adding a negative number...expected 10, found -1
+FAIL (TestExpectedEqual)
+/home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/testing.zig:93:17: 0x124e984 in expectEqualInner__func_958 (std.zig)
+                return error.TestExpectedEqual;
+                ^
+/home/hatch/workspace/build-check/zig-scratch/zig-x86_64-linux-0.17.0/lib/std/testing.zig:57:5: 0x124ea0b in expectEqual (failing_test.zig)
+    return expectEqualInner(T, expected, actual);
+    ^
+/home/hatch/workspace/build-check/zig-scratch/lab/snippets/failing_test.zig:15:5: 0x124ea52 in test.adding a negative number (failing_test.zig)
+    try std.testing.expectEqual(@as(i32, 10), add(2, -3));
+    ^
+1 passed; 0 skipped; 1 failed.
+error: the following test command failed with exit code 1:
+/home/hatch/.cache/zig/o/939cf5d27c83909f80c98a1c34ab4cf5/test --seed=0x344fcbf8
+exit: 1
